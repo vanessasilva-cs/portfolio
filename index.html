@@ -6,14 +6,17 @@
   <title>Vanessa Silva · Engenheira Florestal</title>
   <meta name="description" content="Vanessa Silva, engenheira florestal. Geoprocessamento, licenciamento florestal e análise de inventários florestais.">
   <link rel="icon" href="favicon.png">
-  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/estilo.css?v=2">
 </head>
 <body>
 
 <header class="topo">
   <div class="largura">
     <a href="#inicio"><img src="images/assinatura.png" alt="V. Silva"></a>
-    <nav>
+    <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="menu">
       <a href="#sobre">Sobre</a>
       <a href="#projetos">Projetos</a>
       <a href="#experiencia">Experiência</a>
@@ -29,7 +32,7 @@
     <div class="largura">
       <p class="rotulo">Engenheira florestal</p>
       <h1>Vanessa Silva</h1>
-      <p class="subtitulo">Trabalho com geoprocessamento e licenciamento florestal no Paraná, com foco na análise de inventários florestais.</p>
+      <p class="subtitulo">Geoprocessamento, licenciamento e análise de inventários florestais</p>
       <div class="botoes">
         <a class="botao cheio" href="#projetos">Ver projetos</a>
         <a class="botao" href="pdf/cv/VanessaSilva_CV.pdf">Baixar CV</a>
@@ -40,7 +43,7 @@
   <section id="sobre">
     <div class="largura texto">
       <h2>Sobre</h2>
-      <p>Sou engenheira florestal, com pós-graduação em Engenharia e Gestão Ambiental e em Georreferenciamento de Imóveis Rurais. Cresci em uma chácara em Agudos do Sul, na região metropolitana de Curitiba, e foi esse convívio com a natureza que me levou à engenharia florestal.</p>
+      <p>Cresci em uma chácara em Agudos do Sul, na região metropolitana de Curitiba, e foi esse convívio com a natureza que me levou à engenharia florestal. Depois da graduação na UFPR, fiz pós-graduação em Engenharia e Gestão Ambiental e em Georreferenciamento de Imóveis Rurais.</p>
       <p>Trabalho com análise de dados de inventário florestal e acredito que uma boa análise começa por uma base sólida em estatística e análise espacial. É isso que procuro trazer para cada projeto.</p>
       <p>Desenvolvi o <a href="https://vanessasilva-cs.github.io/GeoDS/">GeoDS</a> (Geospatial Data Science), um projeto de análise de dados espaciais organizado em módulos, com análises que terminam em mapas. Os resultados são publicados com as minhas anotações sobre métodos e escolhas.</p>
     </div>
@@ -259,6 +262,24 @@
 <footer>
   <div class="largura">© 2026 Vanessa Silva</div>
 </footer>
+
+<script>
+  (function () {
+    var topo = document.querySelector('.topo');
+    var botao = topo.querySelector('.menu-botao');
+    function fechar() {
+      topo.classList.remove('aberto');
+      botao.setAttribute('aria-expanded', 'false');
+      botao.setAttribute('aria-label', 'Abrir menu');
+    }
+    botao.addEventListener('click', function () {
+      var aberto = topo.classList.toggle('aberto');
+      botao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+      botao.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+    });
+    topo.querySelectorAll('nav a').forEach(function (a) { a.addEventListener('click', fechar); });
+  })();
+</script>
 
 </body>
 </html>

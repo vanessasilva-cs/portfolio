@@ -45,6 +45,15 @@ h1, h2, h3 {
   text-decoration: none; color: var(--oliva);
 }
 .topo nav a:hover { color: var(--verde); }
+.menu-botao {
+  display: none; width: 40px; height: 40px; padding: 10px 8px;
+  background: none; border: 1px solid var(--linha); border-radius: 3px; cursor: pointer;
+  flex-direction: column; justify-content: space-between;
+}
+.menu-botao span { display: block; height: 2px; background: var(--oliva); border-radius: 1px; transition: transform .2s, opacity .2s; }
+.topo.aberto .menu-botao span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.topo.aberto .menu-botao span:nth-child(2) { opacity: 0; }
+.topo.aberto .menu-botao span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* Abertura */
 .abertura { padding: 64px 0 40px; border-bottom: 1px solid var(--linha); }
@@ -53,7 +62,7 @@ h1, h2, h3 {
   color: var(--oliva); margin: 0 0 14px;
 }
 .abertura h1 { font-size: 3.2rem; margin: 0 0 12px; }
-.abertura .subtitulo { font-size: 1.15rem; color: var(--suave); margin: 0 0 32px; }
+.abertura .subtitulo { font-family: Georgia, "Times New Roman", serif; font-style: italic; font-size: 1.05rem; color: var(--oliva); margin: 0 0 32px; }
 .botoes { display: flex; flex-wrap: wrap; gap: 12px; }
 .botao {
   display: inline-block; padding: 10px 20px; border-radius: 3px;
@@ -135,7 +144,15 @@ footer { color: var(--suave); font-size: .9rem; padding: 28px 0 40px; }
 .publicacao .tabela-valores .destaque { background: rgba(90, 95, 46, .12); color: var(--verde); font-weight: 600; }
 
 @media (max-width: 640px) {
-  .topo nav { display: none; }
+  .topo .largura { position: relative; }
+  .menu-botao { display: flex; }
+  .topo nav {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; gap: 0;
+    background: var(--painel); border-bottom: 1px solid var(--linha);
+  }
+  .topo.aberto nav { display: flex; }
+  .topo nav a { padding: 14px 16px; border-top: 1px solid var(--linha); font-size: 14px; }
   .abertura { padding: 44px 0 32px; }
   .abertura h1 { font-size: 2.4rem; }
   .itens li { grid-template-columns: 1fr; }
