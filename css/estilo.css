@@ -29,8 +29,7 @@ h1, h2, h3 {
 }
 
 .largura { max-width: 960px; margin: 0 auto; padding: 0 16px; }
-.texto > * { max-width: 720px; }
-.texto p, .itens p, .itens li li { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+.texto p, .itens p, .itens li li { text-align: justify; hyphens: none; -webkit-hyphens: none; }
 
 /* Topo */
 .topo {
@@ -48,13 +47,13 @@ h1, h2, h3 {
 .topo nav a:hover { color: var(--verde); }
 
 /* Abertura */
-.abertura { padding: 88px 0 72px; border-bottom: 1px solid var(--linha); }
+.abertura { padding: 64px 0 40px; border-bottom: 1px solid var(--linha); }
 .rotulo {
   font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
   color: var(--oliva); margin: 0 0 14px;
 }
 .abertura h1 { font-size: 3.2rem; margin: 0 0 12px; }
-.abertura .subtitulo { font-size: 1.15rem; color: var(--suave); margin: 0 0 32px; max-width: 620px; }
+.abertura .subtitulo { font-size: 1.15rem; color: var(--suave); margin: 0 0 32px; }
 .botoes { display: flex; flex-wrap: wrap; gap: 12px; }
 .botao {
   display: inline-block; padding: 10px 20px; border-radius: 3px;
@@ -65,7 +64,7 @@ h1, h2, h3 {
 .botao:hover { background: var(--oliva); border-color: var(--oliva); color: var(--cartao); }
 
 /* Seções */
-section { padding: 64px 0; border-bottom: 1px solid var(--linha); scroll-margin-top: 64px; }
+section { padding: 44px 0; border-bottom: 1px solid var(--linha); scroll-margin-top: 64px; }
 section h2 { font-size: 1.9rem; margin: 0 0 28px; }
 
 /* Cartões de publicação */
@@ -129,7 +128,7 @@ footer { color: var(--suave); font-size: .9rem; padding: 28px 0 40px; }
 
 @media (max-width: 640px) {
   .topo nav { display: none; }
-  .abertura { padding: 56px 0 48px; }
+  .abertura { padding: 44px 0 32px; }
   .abertura h1 { font-size: 2.4rem; }
   .itens li { grid-template-columns: 1fr; }
   .publicacao h1 { font-size: 1.8rem; }
